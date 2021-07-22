@@ -2,23 +2,26 @@
 
 Hey there! These are my notes for Linux and Git topics
 
+##### Table of Contents
+- [GNU-Linux & GIT notes](#gnu-linux--git-notes)
+        - [Table of Contents](#table-of-contents)
+  - [GIT](#git)
+  - [GNU-LINUX](#gnu-linux)
+    - [Navigation through filesystem](#navigation-through-filesystem)
+    - [Files and directories management](#files-and-directories-management)
+    - [Permissions and ownership](#permissions-and-ownership)
+    - [SUDO command](#sudo-command)
+    - [Space management commands](#space-management-commands)
+    - [File content management](#file-content-management)
+    - [Process listing and handling](#process-listing-and-handling)
+    - [JAVA files](#java-files)
+
 
 ## GIT
 
 
 ## GNU-LINUX
 
-##### Table of Contents
-[Navigation through filesystem](#fsnavigation)
-[Files and directories management](#filesmanagement)
-[Permissions and ownership](#permissions)
-[SUDO command](#sudo)
-[Space management commands](#spacemanagement)
-[File content management](#filemanagement)
-[Process listing and handling](#processes)
-[JAVA files](#java)
-
-<a name="fsnavigation"/>
 ### Navigation through filesystem
 | Command | Description |
 | :--- | :--- |
@@ -69,7 +72,6 @@ Hey there! These are my notes for Linux and Git topics
 | :--- | :--- |
 | `sudo` |  |
 
-<a name="java"/>
 ### JAVA files
 | Command | Description |
 | :--- | :--- |
