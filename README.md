@@ -28,17 +28,32 @@ https://www.atlassian.com/es/git/tutorials/saving-changes/git-diff
 | Command | Description |
 | :--- | :--- |
 | `git status` | Checks the actual status of the local repo |
-| `git pull <origin> <main>` | Update local repo with the missing commits on the remote repo (using <origin> connection on <main> branch) |
+| `git pull <origin> <branch>` | Update local repo with the missing commits on the remote repo (using <origin> connection on <branch> branch) |
 | `git add <file>` | Add file changes to stage/cache area |
 | `git commit -m 'Commit message'` | Apply changes to local repo with a message |
-| `git push <origin> <main>` | Upload the changes to reporte repo (using <origin> connection on <main> branch) |
+| `git push <origin> <branch>` | Upload the changes to reporte repo (using <origin> connection on <branch> branch) |
 | `git diff --cached <file>` | Shows the differences between the local file and the local file in stage area (cached == staged) |
+
+### Branches
+Branches are like pointers for each version we want to build from our project.
+Each branch is an independent line(branch) of development. Then they can be merged!
+The master/main branch is initially created, and from it the rest of the branches are created
+ 
+| Command | Description |
+| :--- | :--- |
+| `git branch` | Display actual branch |
+| `git branch <new_branch>` | Create a new branch |
+| `git branch -m <actual_branch_name> <new_name>` | Change name of a branch |
+| `git checkout <branch>` | Changes current branch |
+| `git branch -d <branch>` | Delete a branch (You must do a checkout to another branch before deleting) |
+
 
 ## GNU-LINUX
 
 ### Navigation through filesystem
 | Command | Description |
 | :--- | :--- |
+| `clear` | Clear shell |
 | `pwd` | Actual directory (print working directory) |
 | `cd` | Change directory |
 | `ls` | Display folders in the actual directory |
@@ -83,7 +98,6 @@ https://www.atlassian.com/es/git/tutorials/saving-changes/git-diff
 | `|` |  |
 | `grep` |  |
 | `grep -e` |  |
-
 
 ### Process listing and handling
 | Command | Description |
