@@ -19,6 +19,20 @@ Hey there! These are my notes for Linux and Git topics
 
 ## GIT
 
+### git remote | git fetch | git push | git pull
+https://www.atlassian.com/es/git/tutorials/syncing 
+
+### git add | git commit | git diff | git stash | .gitignore
+https://www.atlassian.com/es/git/tutorials/saving-changes/git-diff
+
+| Command | Description |
+| :--- | :--- |
+| `git status` | Checks the actual status of the local repo |
+| `git pull <origin> <main>` | Update local repo with the missing commits on the remote repo (using <origin> connection on <main> branch) |
+| `git add <file>` | Add file changes to stage/cache area |
+| `git commit -m 'Commit message'` | Apply changes to local repo with a message |
+| `git push <origin> <main>` | Upload the changes to reporte repo (using <origin> connection on <main> branch) |
+| `git diff --cached <file>` | Shows the differences between the local file and the local file in stage area (cached == staged) |
 
 ## GNU-LINUX
 
@@ -28,7 +42,9 @@ Hey there! These are my notes for Linux and Git topics
 | `pwd` | Actual directory (print working directory) |
 | `cd` | Change directory |
 | `ls` | Display folders in the actual directory |
+| `ls -r` | IDEM but reverse |
 | `ls -l` | Display permissions, user owner, group, creation date, etc |
+| `aptitude` |  |
 
 
 ### Files and directories management
@@ -58,19 +74,21 @@ Hey there! These are my notes for Linux and Git topics
 | :--- | :--- |
 | `df` | Display Filesystem |
 | `df -h` | Display Filesystem size in GigaBytes |
-| `du` |  |
+| `du -sh *` |  |
 
 ### File content management
 | Command | Description |
 | :--- | :--- |
 | `more` |  |
+| `|` |  |
+| `grep` |  |
 | `grep -e` |  |
 
 
 ### Process listing and handling
 | Command | Description |
 | :--- | :--- |
-| `sudo` |  |
+| `` |  |
 
 ### JAVA files
 | Command | Description |
