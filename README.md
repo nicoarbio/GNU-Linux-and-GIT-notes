@@ -6,6 +6,10 @@ Hey there! These are my notes for Linux and Git topics
 - [GNU-Linux & GIT notes](#gnu-linux--git-notes)
         - [Table of Contents](#table-of-contents)
   - [GIT](#git)
+    - [git remote | git fetch | git push | git pull](#git-remote-|-git-fetch-|-git-push-|-git-pull)
+    - [git add | git commit | git diff | git stash | .gitignore](#git-add-|-git-commit-|-git-diff-|-git-stash-|-.gitignore)
+    - [Branches](#branches)
+    - [Differences and Merging](#differences-and-merging)
   - [GNU-LINUX](#gnu-linux)
     - [Navigation through filesystem](#navigation-through-filesystem)
     - [Files and directories management](#files-and-directories-management)
@@ -32,12 +36,11 @@ https://www.atlassian.com/es/git/tutorials/saving-changes/git-diff
 | `git add <file>` | Add file changes to stage/cache area |
 | `git commit -m 'Commit message'` | Apply changes to local repo with a message |
 | `git push <origin> <branch>` | Upload the changes to reporte repo (using <origin> connection on <branch> branch) |
-| `git diff --cached <file>` | Shows the differences between the local file and the local file in stage area (cached == staged) |
 
 ### Branches
-Branches are like pointers for each version we want to build from our project.
-Each branch is an independent line(branch) of development. Then they can be merged!
-The master/main branch is initially created, and from it the rest of the branches are created
+- Branches are like pointers for each version we want to build from our project.
+- Each branch is an independent line(branch) of development. Then they can be merged!
+- The master/main branch is initially created, and from it the rest of the branches are created
  
 | Command | Description |
 | :--- | :--- |
@@ -47,6 +50,12 @@ The master/main branch is initially created, and from it the rest of the branche
 | `git checkout <branch>` | Changes current branch |
 | `git branch -d <branch>` | Delete a branch (You must do a checkout to another branch before deleting) |
 
+### Differences and Merging
+| Command | Description |
+| :--- | :--- |
+| `git diff --cached <file>` | Shows the differences between file and the changes in stage area (cached == staged) |
+| `git diff <branch_1> <branch_2>` | Display differences at level file between branches  |
+| `git merge <branch_src> <branch_tgt>` | Merge source into target branches (always checkout target branch) |
 
 ## GNU-LINUX
 
@@ -102,7 +111,7 @@ The master/main branch is initially created, and from it the rest of the branche
 ### Process listing and handling
 | Command | Description |
 | :--- | :--- |
-| `` |  |
+|  |  |
 
 ### JAVA files
 | Command | Description |
