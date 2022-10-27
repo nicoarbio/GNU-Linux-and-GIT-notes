@@ -34,10 +34,10 @@ https://www.atlassian.com/es/git/tutorials/saving-changes/git-diff
 | `git status` | Checks the actual status of the local repo |
 | `git log` | Shows the commit logs |
 | `git log --graph --decorate` | Shows the commit logs but pretty |
-| `git pull <origin> <branch>` | Update local repo with the missing commits on the remote repo (using <origin> connection on <branch> branch) |
+| `git pull <origin> <branch>` | Update local repo with the missing commits on the remote repo (using `<origin>` connection on <branch> branch) |
 | `git add <file>` | Add file changes to stage/cache area |
 | `git commit -m 'Commit message'` | Apply changes to local repo with a message |
-| `git push <origin> <branch>` | Upload the changes to reporte repo (using <origin> connection on <branch> branch) |
+| `git push <origin> <branch>` | Upload the changes to reporte repo (using `<origin>` connection on `<branch>` branch) |
 | `git commit --amend -m 'New Commit message` | Modify the message of the last commit |
 
 ### Git Stash
@@ -50,7 +50,7 @@ https://www.atlassian.com/es/git/tutorials/saving-changes/git-diff
 | Command | Description |
 | :--- | :--- |
 | `git stash list` | List the stash entries that you currently have |
-| `git stash save 'name'` | Stash the changes in a dirty working directory away but with a <name> as ID |
+| `git stash save 'name'` | Stash the changes in a dirty working directory away but with a `<name>` as ID |
 | `git stash apply stash@{n}` | Behaves exactly like pop, but do not remove the state from the stash list. n is the index in the stack |
 | `git stash drop stash@{n}` | Remove a single stash entry from the list of stash entries. n is the index in the stack |
 
