@@ -157,6 +157,7 @@ Depending on the type of file permissions that we want to assign, we will just a
 | Command | Description |
 | :--- | :--- |
 | `sudo <command>` | "Super user do". Used to execute commands as root (System Owner) as a way to temporarily grant a user administrative rights. `root` user password requiered prior command execution. |
+| `sudo su -` | Switch to root user. |
 
 ### Space management commands
 | Command | Description |
