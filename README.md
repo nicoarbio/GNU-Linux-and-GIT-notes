@@ -85,6 +85,12 @@ https://www.atlassian.com/es/git/tutorials/saving-changes/git-diff
 - GPT: GUID Partition Table. Better than MBR.
 - LVM: Logical Volume Manager. Tools to create virtual partitions.
 
+### Manual or man
+Use command `man` to read all the information regarding any command in the system.
+Every single binary has its own entry in the manual, even the ones from external packages.
+> `man <command_name>` will print out an entry for that command, listing all the arguments and explaining each one of them.
+
+
 ### Navigation through filesystem
 | Command | Description |
 | :--- | :--- |
@@ -100,39 +106,100 @@ https://www.atlassian.com/es/git/tutorials/saving-changes/git-diff
 ### Files and directories management
 | Command | Description |
 | :--- | :--- |
-| `mkdir FOLDER_NAME` | Create a folder |
-| `cp FILE_OR_FOLDER NEW_DESTINATION` | Copy a file or folder |
-| `mv FILE_OR_FOLDER_OLD FILE_OR_FOLDER_NEW` | Move a file or folder |
-| `mv FILE_OR_FOLDER NEW_DESTINATION` | Change file or folder name |
-| `rm FILE` | Remove a file. *Warning*: there is no trash bin in Linux when using the command line |
-| `rm -r DIRECTORY` | Remove recursively, used to delete an entire directory. |
-| `rmdir DIRECTORY` | Remove an empty directory |
+| `mkdir <FOLDER_NAME>` | Create a folder |
+| `cp <FILE_OR_FOLDER> <NEW_DESTINATION>` | Copy a file or folder |
+| `mv <FILE_OR_FOLDER> <NEW_DESTINATION>` | Move a file or folder |
+| `mv <FILE_OR_FOLDER_OLD> FILE_OR_FOLDER_NEW>` | Change file or folder name |
+| `rm <FILE>` | Remove a file. *Warning*: there is no trash bin in Linux when using the command line |
+| `rm -r <DIRECTORY>` | Remove recursively, used to delete an entire directory. |
+| `rmdir <DIRECTORY>` | Remove an empty directory |
 
 ### Permissions and ownership
+All files have the following attributes:
+- Owner permissions: the owner's permissions determine what actions the owner of the file can perform on the file.
+-	Group permissions: the group's permissions determine what actions a user, who is a member of the group that a file belongs to, can perform to a file.
+-	Other permissions: the permissions for all other users.
+
+```bash
+  > ls -l
+  drwxrwxrwx [...]
+```
+
+By taking a look at the first 10 characters, we can see that this directory has full permissions:
+- `d`: indicates that the file is a directory.
+- `rwx`: read, write and execution permission for Owner
+- `rwx`: read, write and execution permission for Group
+- `rwx`: read, write and execution permission for Other
+
+#### Representing permissions
+To represent these three characters for a single attribute we use only one number, a permission byte.
+
+Depending on the type of file permissions that we want to assign, we will just add the numbers, when adding permissions we need to use a number for each attribute (owner, group and other). 
+
+| Value | Description | Permission |
+| :--- | :--- | :--- |
+| `0` | No permission | `---` |
+| `1` | Execute | `--x` |
+| `2` | Write | `-w-` |
+| `4` | Read | `r--` |
+| `3` | Execute and Write | `-wx` |
+| `5` | Execute and Read | `r-x` |
+| `6` | Read and Write  | `rw-` |
+| `7` | Read, Write and Execute | `rwx` |
+
+#### Commands
 | Command | Description |
 | :--- | :--- |
-| `chmod` |  |
-| `chown` |  |
+| `chmod <owner permissions><group permissions><other permission> <FILE>` | Change mode. Modify permissions. eg: `chmod 777 file` |
+| `chown <user_name>:<group_name>` | Change file owner |
 
 ### SUDO command
 | Command | Description |
 | :--- | :--- |
-| `sudo` |  |
+| `sudo <command>` | "Super user do". Used to execute commands as root (System Owner) as a way to temporarily grant a user administrative rights. `root` user password requiered prior command execution. |
 
 ### Space management commands
 | Command | Description |
 | :--- | :--- |
-| `df` | Display Filesystem |
-| `df -h` | Display Filesystem size in GigaBytes |
-| `du -sh *` |  |
+| `df` | Display Filesystem and disk utilization |
+| `df -h` | Display in "human readable" format |
+| `du <optional_dir_or_file>` | Disk Usage. Used to check the space usage of one or various files on a directory |
+| `du -h ` | Display in "human readable" format |
+| `du -a` | List all files on the directory (CANNOT USE -a AND -s) |
+| `du -s` | Summarize the output (the sum of all the space usage) (CANNOT USE -a AND -s) |
+
+#### du command examples
+| Command | Output |
+| :--- | :--- |
+| `du -ah` | Print all files in directory in a "human readable" format |
+| `du -sh *` | Print each file/directory disk usage in a "human readable" format (**MOST USED**) |
+| `du -sh <file_name>` | Print disk usage for a file or directory |
 
 ### File content management
 | Command | Description |
 | :--- | :--- |
-| `more` |  |
-| `|` | Pipe |
-| `grep` |  |
-| `grep -e` |  |
+| `more <file>` | Read text files. Controls [below](#more-command-controls) |
+| `tail <file>` | Print the last lines of a file |
+| `head <file>` | Print the top lines of a file |
+| `cat <file>` | Print all file content |
+| `|` | "Pipe". Allow the use of two or more commands using the output of the left command as input for the right one. |
+| `grep` | Used in combination with "Pipe" (|) to search for a specific string in a file or directory. Example:  |
+| `grep -e` | `-e` argument allow us to add more than one term for searching |
+
+#### more command controls
+-	`enter` key: scroll down line by line
+-	`space bar`: next page
+-	`b`: go back one page
+-	`q`: quit
+
+#### grep command examples
+If I want to seach for error (ERR) or warning (WARN) messages:
+```bash
+  > cat log | grep -e ERR -e WARN
+  ERR: ....
+  ERR: ....
+  WARN: ....
+```
 
 ### Vi / Vim
 | Command | Description |
@@ -143,12 +210,24 @@ https://www.atlassian.com/es/git/tutorials/saving-changes/git-diff
 ### Process listing and handling
 | Command | Description |
 | :--- | :--- |
-|  |  |
+| `ps -ef` | Print all processes with their ids. Also prints owners and groups |
+| `kill -9 <pid>` | Kill locked process using process id |
+| `ps -ef | grep <process_name>` | Search for a specific process |
 
 ### JAVA files
 | Command | Description |
 | :--- | :--- |
-| `java -jar FILE_NAME.jar` | Run a JAVA '.jar' file |
+| `java -jar <FILE_NAME.jar>` | Run a JAVA '.jar' file |
+| `java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -jar <FILE_NAME.jar>` | Debug a JAVA '.jar' file (IDE needed) |
+
+#### Debug command for .jar files
+1. `JDWP`: Java Debug Wire Protocol
+1. `transport=dt_socket`: specifies the transport mechanism to use for the JDWP connection. In this case, it's using a socket-based transport.
+1. `server=y`: indicates that the JVM should act as a server for the JDWP connection, meaning that it will listen for a debugger to connect.
+1. `suspend=y`: determines whether the JVM should wait for a debugger to connect before running the program. If `suspend=y`, then the program will start up but wait for a debugger to connect before it starts running. If `suspend=n`, then the program will start running immediately after the JVM starts up.
+1. `address=5005`: specifies the port number to use for the JDWP connection. In this case, it's using port 5005. The debugger will use this port to connect to the JVM and control the execution of the program.
+
+> This option tells the JVM to listen on port 5005 for a socket-based JDWP connection from a debugger, and to start running the program immediately without waiting for a debugger to connect.
 
 ### Zipping and Compressing and Packaging
 | Command | Description |
