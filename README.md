@@ -182,7 +182,7 @@ Depending on the type of file permissions that we want to assign, we will just a
 | `tail <file>` | Print the last lines of a file |
 | `head <file>` | Print the top lines of a file |
 | `cat <file>` | Print all file content |
-| `|` | "Pipe". Allow the use of two or more commands using the output of the left command as input for the right one. |
+| `\|` | "Pipe". Allow the use of two or more commands using the output of the left command as input for the right one. |
 | `grep` | Used in combination with "Pipe" (|) to search for a specific string in a file or directory. Example:  |
 | `grep -e` | `-e` argument allow us to add more than one term for searching |
 
@@ -212,7 +212,7 @@ If I want to seach for error (ERR) or warning (WARN) messages:
 | :--- | :--- |
 | `ps -ef` | Print all processes with their ids. Also prints owners and groups |
 | `kill -9 <pid>` | Kill locked process using process id |
-| `ps -ef | grep <process_name>` | Search for a specific process |
+| `ps -ef \| grep <process_name>` | Search for a specific process |
 
 ### JAVA files
 | Command | Description |
