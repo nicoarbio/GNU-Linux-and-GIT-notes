@@ -183,9 +183,10 @@ Depending on the type of file permissions that we want to assign, we will just a
 | `tail <file>` | Print the last lines of a file |
 | `head <file>` | Print the top lines of a file |
 | `cat <file>` | Print all file content |
-| `\|` | "Pipe". Allow the use of two or more commands using the output of the left command as input for the right one. |
-| `grep` | Used in combination with "Pipe" (|) to search for a specific string in a file or directory. Example:  |
-| `grep -e` | `-e` argument allow us to add more than one term for searching |
+| `\|` | "Pipe". Allow the use of two or more commands using the output of the left command as input for the right one |
+| `grep` | Search in the files for a specific string. Used in combination with "Pipe" (|) to search for a specific string in a file or directory |
+| `grep -e` | Add more than one term for searching |
+| `grep -r` | Search recursively in all files and directories |
 
 #### more command controls
 -	`enter` key: scroll down line by line
